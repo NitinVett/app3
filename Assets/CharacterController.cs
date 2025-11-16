@@ -1,26 +1,29 @@
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class CharacterController : MonoBehaviour
 {
 
     public float moveSpeed = 6f;
     public float jumpForce = 7f;
 
-    public Transform groundCheck;
-    public float groundRadius = 0.2f;
-    public LayerMask groundLayer;
 
+
+
+    public GameObject weapon;
     private Rigidbody rb;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        rb.freezeRotation = true; 
+        rb.freezeRotation = true;
+        
     }
 
     void FixedUpdate()
     {
+
         MovePlayer();
+        //weapon.transform.position= new Vector3(rb.position.x+0.6f, rb.position.y, rb.position.z);
     }
 
 

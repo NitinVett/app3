@@ -2,9 +2,9 @@ using UnityEngine;
 using UnityEngine.AI;
 public class NewMonoBehaviourScript : MonoBehaviour
 {
-    public float health;
-    public float speed;
-    public float damage;
+    public float health = 100;
+    public float speed = 3;
+    public float damage = 20;
     public Transform player;
     private NavMeshAgent agent;
     // Start is called once before the first execution of Update after the MonoBehaviour is created

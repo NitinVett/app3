@@ -18,14 +18,27 @@ public class CharacterController : MonoBehaviour
     }
     void Update()
     {
-        
+        RaycastHit hit;
+        int layerMask = 1 << LayerMask.NameToLayer("enemy");
+        Debug.Log(layerMask);
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, layerMask))
+            {
+                Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.red);
+                Debug.Log("Did Hit");
+                Enemy zombie = hit.collider.GetComponent<Enemy>();
+                zombie.TakeDamage(100);
+                
+            }
+        }
     }
 
     void FixedUpdate()
     {
 
         MovePlayer();
-        //weapon.transform.position= new Vector3(rb.position.x+0.6f, rb.position.y, rb.position.z);
+        
     }
 
 

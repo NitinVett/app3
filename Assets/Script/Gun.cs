@@ -6,22 +6,49 @@ using UnityEngine.EventSystems;
 public class Gun : MonoBehaviour
 {
     public int damage = 100;
+    public int AmmoInGun = 30;
+    public int storedAmmo = 90;
+    public int magSize = 30;
+    public int loadNumBullets;
     public Animator recoil;
     public Camera fpsCam;
     
 
     void Update()
     {
-        if (Input.GetButtonDown("Fire1")){
+        if (Input.GetButtonDown("Fire1") && AmmoInGun > 0)
+        {
             Shoot();
+        }
+        else if (Input.GetKeyDown(KeyCode.R) && AmmoInGun< magSize && storedAmmo > 0)
+        {
+            Reload();
         }
     }
 
     public void Shoot()
-    {
+    {  
         recoil.Play("Recoil");
+        AmmoInGun-=1;
         Vector3 rayOrigin = fpsCam.transform.position + fpsCam.transform.forward * 0.1f;
         Debug.DrawRay(rayOrigin, fpsCam.transform.forward * 100f, Color.blue, 2f);  // Fixed line
-
+    }
+    public void Reload()
+    {
+        recoil.Play("Reload");
+        if (storedAmmo>=magSize)
+        {
+            loadNumBullets = magSize-AmmoInGun;
+            AmmoInGun+= loadNumBullets;
+            storedAmmo-= loadNumBullets;
+            
+        }
+        else if (storedAmmo < magSize)
+        {
+            loadNumBullets = storedAmmo-AmmoInGun;
+            AmmoInGun+= loadNumBullets;
+            storedAmmo-= loadNumBullets;
+        }
+        
     }
 }

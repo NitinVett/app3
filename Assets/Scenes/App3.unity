@@ -1601,6 +1601,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3785396721287001285, guid: c20daf91d2bce304c85fec03f5fafd3b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.046
+      objectReference: {fileID: 0}
     - target: {fileID: 4311248730837266121, guid: c20daf91d2bce304c85fec03f5fafd3b, type: 3}
       propertyPath: m_Name
       value: Ak47
@@ -1638,6 +1642,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 100
+  AmmoInGun: 30
+  storedAmmo: 90
+  magSize: 30
+  loadNumBullets: 0
   recoil: {fileID: 183019477}
   fpsCam: {fileID: 151917615}
 --- !u!95 &183019477
@@ -11269,6 +11277,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 6218837976672581338, guid: 970a0e0414fa8be4695cbe8c3d95afd7, type: 3}
+      propertyPath: anim
+      value: 
+      objectReference: {fileID: 2049010428}
+    - target: {fileID: 6218837976672581338, guid: 970a0e0414fa8be4695cbe8c3d95afd7, type: 3}
+      propertyPath: walk
+      value: 
+      objectReference: {fileID: 2049010428}
+    - target: {fileID: 6218837976672581338, guid: 970a0e0414fa8be4695cbe8c3d95afd7, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 1973277209}
@@ -11319,7 +11335,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6660184903045082040, guid: 970a0e0414fa8be4695cbe8c3d95afd7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2049010428}
   m_SourcePrefab: {fileID: 100100000, guid: 970a0e0414fa8be4695cbe8c3d95afd7, type: 3}
 --- !u!1001 &1497552553
 PrefabInstance:
@@ -15904,6 +15923,27 @@ Transform:
   - {fileID: 628928604}
   m_Father: {fileID: 1256237654}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2049010422 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6660184903045082040, guid: 970a0e0414fa8be4695cbe8c3d95afd7, type: 3}
+  m_PrefabInstance: {fileID: 1491557469}
+  m_PrefabAsset: {fileID: 0}
+--- !u!111 &2049010428
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2049010422}
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Animation: {fileID: -203655887218126122, guid: 7d7983677a311ef429c2a40c13497221, type: 3}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_UpdateMode: 0
+  m_CullingType: 0
 --- !u!1001 &2055984714
 PrefabInstance:
   m_ObjectHideFlags: 0

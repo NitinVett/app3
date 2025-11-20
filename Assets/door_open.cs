@@ -2,17 +2,22 @@ using UnityEngine;
 using DG.Tweening;
 public class door_open : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public GameObject door;
+    
     void Start()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnTriggerEnter(Collider other)
     {
-        
+        door.transform.DORotate(
+            new Vector3(90, 90, 0), 
+            1f                     
+        );
+        gameObject.SetActive(false);
     }
+    
 }
 
 

@@ -6903,6 +6903,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5511107240727842668, guid: e4a3c0459c0676f4a81d72f14ce79673, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1871463835}
+    - targetCorrespondingSourceObject: {fileID: 5511107240727842668, guid: e4a3c0459c0676f4a81d72f14ce79673, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1871463838}
   m_SourcePrefab: {fileID: 100100000, guid: e4a3c0459c0676f4a81d72f14ce79673, type: 3}
 --- !u!4 &936386334 stripped
 Transform:
@@ -13520,6 +13523,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 151917616}
     m_Modifications:
+    - target: {fileID: -3678571234570922729, guid: 0bcdc7d174ff79641a4487a022f363d6, type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7079919218563593500, guid: 0bcdc7d174ff79641a4487a022f363d6, type: 3}
       propertyPath: m_Name
       value: knife_001
@@ -14692,6 +14699,18 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -8256052390180630127, guid: b77da4f016c6e22418c989a19bf3ba6c, type: 3}
+--- !u!114 &1871463838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1871463831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43cc5fbfb11da2a4ca16a47bf5641ad3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1874691107
 GameObject:
   m_ObjectHideFlags: 0
@@ -15561,8 +15580,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   moveSpeed: 6
-  jumpForce: 7
   pickupDistance: 5
+  cam: {fileID: 151917615}
 --- !u!54 &1973277211
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -15608,7 +15627,6 @@ MonoBehaviour:
   knife: {fileID: 7079919218563593500, guid: 0bcdc7d174ff79641a4487a022f363d6, type: 3}
   hockeystick: {fileID: 0}
   axe: {fileID: 0}
-  health: 0
 --- !u!1001 &1974290709
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16942,6 +16960,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 151917616}
     m_Modifications:
+    - target: {fileID: 701798497785894282, guid: b92035e16350369419276e27df2806bd, type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3645356138423562855, guid: b92035e16350369419276e27df2806bd, type: 3}
       propertyPath: m_Name
       value: hockey_stick_001

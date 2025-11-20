@@ -4,9 +4,8 @@ public class CharacterController : MonoBehaviour
 {
     public float health = 100;
     public float moveSpeed = 6f;
-    public float jumpForce = 7f;
     public float pickupDistance = 5;
-
+    public Camera cam;
     private Enemy enemy;
     private Rigidbody rb;
 
@@ -32,9 +31,9 @@ public class CharacterController : MonoBehaviour
         Debug.Log(layerMask);
         if (Input.GetMouseButtonDown(0))
         {
-            if (Physics.Raycast(transform.position, transform.forward, out hit, Mathf.Infinity, layerMask))
+            if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, Mathf.Infinity, layerMask))
             {
-                Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.blue);
+                Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.red);
                 Debug.Log("Did Hit");
                 Enemy zombie = hit.collider.GetComponent<Enemy>();
                 zombie.TakeDamage(100);

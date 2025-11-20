@@ -5,9 +5,9 @@ public class CharacterController : MonoBehaviour
     public float health = 100;
     public float moveSpeed = 6f;
     public float jumpForce = 7f;
+    public float pickupDistance = 5;
 
-    public Enemy enemy;
-    public GameObject weapon;
+    private Enemy enemy;
     private Rigidbody rb;
 
     void Start()
@@ -18,14 +18,23 @@ public class CharacterController : MonoBehaviour
     }
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            SwapWeapon();
+        }
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            Pickup();
+        }
+       
         RaycastHit hit;
         int layerMask = 1 << LayerMask.NameToLayer("enemy");
         Debug.Log(layerMask);
         if (Input.GetMouseButtonDown(0))
         {
-            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, layerMask))
+            if (Physics.Raycast(transform.position, transform.forward, out hit, Mathf.Infinity, layerMask))
             {
-                Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.red);
+                Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.blue);
                 Debug.Log("Did Hit");
                 Enemy zombie = hit.collider.GetComponent<Enemy>();
                 zombie.TakeDamage(100);
@@ -36,9 +45,7 @@ public class CharacterController : MonoBehaviour
 
     void FixedUpdate()
     {
-
-        MovePlayer();
-        
+        MovePlayer();   
     }
 
 
@@ -78,5 +85,44 @@ public class CharacterController : MonoBehaviour
     public void HealHealth(float healAmount)
     {   
         health += healAmount;
+    }
+    public void SwapWeapon()
+    {
+        CharacterInventory inventory = gameObject.GetComponent<CharacterInventory>();
+        if(inventory.holdingSlot == 1&& inventory.slot2 != null)
+        {
+            inventory.holdingSlot = 2;
+        }
+        else if(inventory.holdingSlot == 2)
+        {
+            inventory.holdingSlot = 1;
+        }
+    }
+    public void Pickup()
+    {
+        RaycastHit hit;
+        int layerMask = 1 << LayerMask.NameToLayer("item");
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (Physics.Raycast(transform.position, transform.forward, out hit, pickupDistance, layerMask))
+            {
+                CharacterInventory inventory = gameObject.GetComponent<CharacterInventory>();
+                GameObject item = hit.collider.gameObject;
+
+                if(inventory.holdingSlot == 1 && inventory.slot2 == null)
+                {
+                    inventory.slot2 = item;
+                }
+                else if(inventory.holdingSlot == 1 && inventory.slot2 != null)
+                {
+                    inventory.slot1 = item;
+                }
+                else if(inventory.holdingSlot == 2)
+                {
+                    inventory.slot2 = item;
+                }
+                Destroy(hit.collider.gameObject);
+            }
+        }
     }
 }

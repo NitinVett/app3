@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 3
   tags:
   - Enemy
+  - knife
+  - axe
+  - hockeystick
   layers:
   - Default
   - TransparentFX
@@ -13,9 +16,9 @@ TagManager:
   - Water
   - UI
   - enemy
-  - 
-  - 
-  - 
+  - axe
+  - hockeystick
+  - item
   - 
   - 
   - 

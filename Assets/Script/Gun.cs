@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 public class Gun : MonoBehaviour
 {
-    public int damage = 100;
+    public int damage = 20;
     public int AmmoInGun = 30;
     public int storedAmmo = 90;
     public int magSize = 30;
@@ -20,7 +20,7 @@ public class Gun : MonoBehaviour
         {
             Shoot();
         }
-        else if (Input.GetKeyDown(KeyCode.R) && AmmoInGun< magSize && storedAmmo > 0)
+        else if (Input.GetKeyDown(KeyCode.R) && AmmoInGun < magSize && storedAmmo > 0)
         {
             Reload();
         }
@@ -30,8 +30,6 @@ public class Gun : MonoBehaviour
     {  
         recoil.Play("Recoil");
         AmmoInGun-=1;
-        Vector3 rayOrigin = fpsCam.transform.position + fpsCam.transform.forward * 0.1f;
-        Debug.DrawRay(rayOrigin, fpsCam.transform.forward * 100f, Color.blue, 2f);  // Fixed line
     }
     public void Reload()
     {

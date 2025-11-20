@@ -20,17 +20,19 @@ public class Enemy : MonoBehaviour
     {
         if (player != null){
             agent.SetDestination(player.position);
-            //anim.Play();
         }
-        
-        
     }
 
     public void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
-        {
-            TakeDamage(20);
+        if(gameObject.name == "knife"){
+            TakeDamage(50);
+        }
+        else if(gameObject.name == "hockeystick"){
+            TakeDamage(100);
+        }
+        else if(gameObject.name == "axe"){
+            TakeDamage(200);
         }
         
     }

@@ -4,7 +4,7 @@ public class CharacterController : MonoBehaviour
 {
     public float health = 100;
     public float moveSpeed = 6f;
-    public float pickupDistance = 5;
+    public float pickupDistance = 50;
     public Camera cam;
     private Enemy enemy;
     private Rigidbody rb;
@@ -101,27 +101,24 @@ public class CharacterController : MonoBehaviour
     {
         RaycastHit hit;
         int layerMask = 1 << LayerMask.NameToLayer("item");
-        if (Input.GetMouseButtonDown(0))
+        if (Physics.Raycast(transform.position, transform.forward, out hit, pickupDistance, layerMask))
         {
-            if (Physics.Raycast(transform.position, transform.forward, out hit, pickupDistance, layerMask))
-            {
-                CharacterInventory inventory = gameObject.GetComponent<CharacterInventory>();
-                GameObject item = hit.collider.gameObject;
+            CharacterInventory inventory = gameObject.GetComponent<CharacterInventory>();
+            GameObject item = hit.collider.gameObject;
 
-                if(inventory.holdingSlot == 1 && inventory.slot2 == null)
-                {
-                    inventory.slot2 = item;
-                }
-                else if(inventory.holdingSlot == 1 && inventory.slot2 != null)
-                {
-                    inventory.slot1 = item;
-                }
-                else if(inventory.holdingSlot == 2)
-                {
-                    inventory.slot2 = item;
-                }
-                Destroy(hit.collider.gameObject);
+            if(inventory.holdingSlot == 1 && inventory.slot2 == null)
+            {
+                inventory.slot2 = item;
             }
+            else if(inventory.holdingSlot == 1 && inventory.slot2 != null)
+            {
+                inventory.slot1 = item;
+            }
+            else if(inventory.holdingSlot == 2)
+            {
+                inventory.slot2 = item;
+            }
+            Destroy(hit.collider.gameObject);
         }
     }
 }

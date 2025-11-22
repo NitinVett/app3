@@ -18,7 +18,7 @@ public class CharacterController : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha2))
+        if (Input.GetKeyDown(KeyCode.Tab))
         {
             SwapWeapon();
         }
@@ -92,13 +92,18 @@ public class CharacterController : MonoBehaviour
     public void SwapWeapon()
     {
         CharacterInventory inventory = gameObject.GetComponent<CharacterInventory>();
-        if(inventory.holdingSlot == 1&& inventory.slot2 != null)
+        if(inventory.holdingSlot == 1 && inventory.slot2 != null)
         {
             inventory.holdingSlot = 2;
+            inventory.slot1.SetActive(false);
+            inventory.slot2.SetActive(true);
+
         }
         else if(inventory.holdingSlot == 2)
         {
             inventory.holdingSlot = 1;
+            inventory.slot2.SetActive(false);
+            inventory.slot1.SetActive(true);
         }
     }
     public void Pickup()
@@ -110,19 +115,35 @@ public class CharacterController : MonoBehaviour
             CharacterInventory inventory = gameObject.GetComponent<CharacterInventory>();
             GameObject item = hit.collider.gameObject;
 
+            // put in slot 2
             if(inventory.holdingSlot == 1 && inventory.slot2 == null)
             {
-                inventory.slot2 = item;
+                inventory.slot1.SetActive(false);
+                if (item.tag == "axe")
+                {
+                    inventory.slot2 = inventory.axe;
+                }
+                
+                inventory.holdingSlot = 2;
+                inventory.slot2.SetActive(true);
             }
+            // put in slot 1
             else if(inventory.holdingSlot == 1 && inventory.slot2 != null)
             {
+                inventory.slot2.SetActive(false);
                 inventory.slot1 = item;
+                inventory.holdingSlot = 1;
+                inventory.slot1.SetActive(true);
             }
+            // put in slot 2
             else if(inventory.holdingSlot == 2)
             {
+                inventory.slot1.SetActive(false);
                 inventory.slot2 = item;
+                inventory.holdingSlot = 2;
+                inventory.slot2.SetActive(true);
             }
-            Destroy(hit.collider.gameObject);
+            item.SetActive(false);
         }
     }
 }

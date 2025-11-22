@@ -552,7 +552,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4011605589608005922, guid: 822bcce9cc62cc843925c7bc50a045af, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 1.98
       objectReference: {fileID: 0}
     - target: {fileID: 4011605589608005922, guid: 822bcce9cc62cc843925c7bc50a045af, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1665,7 +1665,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 098d7eec3a2f946c4abb8b89241b75c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 100
+  damage: 20
   AmmoInGun: 30
   storedAmmo: 90
   magSize: 30
@@ -16016,7 +16016,7 @@ MonoBehaviour:
   moveSpeed: 6
   sprintSpeed: 0
   pickupDistance: 50
-  cam: {fileID: 151917615}
+  fpsCam: {fileID: 151917615}
 --- !u!54 &1973277211
 Rigidbody:
   m_ObjectHideFlags: 0

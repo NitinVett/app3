@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 public class Gun : MonoBehaviour
 {
-    public int damage = 20;
+    public int damage = 1;
     public int AmmoInGun = 30;
     public int storedAmmo = 90;
     public int magSize = 30;
@@ -30,6 +30,13 @@ public class Gun : MonoBehaviour
     {  
         recoil.Play("Recoil");
         AmmoInGun-=1;
+        RaycastHit hit;
+        int layerMask = 1 << LayerMask.NameToLayer("enemy");
+        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, Mathf.Infinity, layerMask))
+        {
+            Enemy enemy = hit.collider.GetComponent<Enemy>();
+            enemy.TakeDamage(damage);
+        }
     }
     public void Reload()
     {

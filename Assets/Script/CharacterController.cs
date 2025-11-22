@@ -6,7 +6,7 @@ public class CharacterController : MonoBehaviour
     public float moveSpeed = 6f;
     public float sprintSpeed;
     public float pickupDistance = 50;
-    public Camera cam;
+    public Camera fpsCam;
     private Enemy enemy;
     private Rigidbody rb;
 
@@ -25,21 +25,6 @@ public class CharacterController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             Pickup();
-        }
-       
-        RaycastHit hit;
-        int layerMask = 1 << LayerMask.NameToLayer("enemy");
-        Debug.Log(layerMask);
-        if (Input.GetMouseButtonDown(0))
-        {
-            if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, Mathf.Infinity, layerMask))
-            {
-                Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.red);
-                Debug.Log("Did Hit");
-                Enemy zombie = hit.collider.GetComponent<Enemy>();
-                zombie.TakeDamage(100);
-                
-            }
         }
     }
 
@@ -110,7 +95,7 @@ public class CharacterController : MonoBehaviour
     {
         RaycastHit hit;
         int layerMask = 1 << LayerMask.NameToLayer("item");
-        if (Physics.Raycast(transform.position, transform.forward, out hit, pickupDistance, layerMask))
+        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, pickupDistance, layerMask))
         {
             CharacterInventory inventory = gameObject.GetComponent<CharacterInventory>();
             GameObject item = hit.collider.gameObject;

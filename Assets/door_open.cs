@@ -4,10 +4,6 @@ public class door_open : MonoBehaviour
 {
     public GameObject door;
     public GameObject open_prompt;
-    void Start()
-    {
-        
-    }
 
     void OnTriggerStay(Collider other)
     {

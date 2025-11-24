@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class MeleeWeapons : MonoBehaviour
 {
+    public Animator attack1;
+
+
     public int damage = 50;
     //add cooldwons and speed for each weapon
     
@@ -15,16 +18,23 @@ public class MeleeWeapons : MonoBehaviour
     }
     public void Attack()
     {
-        if(gameObject.name == "knife"){
-            //play anim
+        if(gameObject.name == "Knife"){
+            attack1.Play("Stab");
         }
-        else if(gameObject.name == "hockeystick"){
-            //play anim
+        else if(gameObject.name == "Hockeystick"){
+            attack1.Play("SlapSwing");
         }
-        else if(gameObject.name == "axe"){
-            //play anim
+        else if(gameObject.name == "Axe"){
+            attack1.Play("StumpSplitter");
         }
     }
-    
-    
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Enemy")
+        {
+            Enemy enemy = other.gameObject.GetComponent<Enemy>();
+            enemy.TakeDamage(damage);
+        }
+    }
+
 }

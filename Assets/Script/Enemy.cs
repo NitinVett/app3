@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.AI;
 public class Enemy : MonoBehaviour
 {
+    public int moneyDrop = 100;
     public float health = 100;
     public float damage = 20;
     public Transform player;
@@ -22,20 +23,6 @@ public class Enemy : MonoBehaviour
             agent.SetDestination(player.position);
         }
     }
-
-    public void OnTriggerEnter(Collider other)
-    {
-        if(gameObject.name == "knife"){
-            TakeDamage(50);
-        }
-        else if(gameObject.name == "hockeystick"){
-            TakeDamage(100);
-        }
-        else if(gameObject.name == "axe"){
-            TakeDamage(200);
-        }
-        
-    }
     public void TakeDamage(float damageAmount)
     {
         if(health > 0)
@@ -44,6 +31,8 @@ public class Enemy : MonoBehaviour
         }
         if(health <= 0)
         {
+            CharacterInventory inventory = player.GetComponent<CharacterInventory>();
+            inventory.money+=moneyDrop;
             Destroy(gameObject);
         }
     }

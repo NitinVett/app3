@@ -10,6 +10,7 @@ public class CharacterInventory : MonoBehaviour
     public GameObject knife;
     public GameObject hockeystick;
     public GameObject axe;
+    public GameObject ak47;
     public int money;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -39,6 +40,9 @@ public class CharacterInventory : MonoBehaviour
         } else if(itemName == "knife")
         {
             return knife;
+        }else if(itemName == "ak47")
+        {
+            return ak47;
         }
         return null;
     }
@@ -57,7 +61,7 @@ public class CharacterInventory : MonoBehaviour
         // put in slot 1
         else if(holdingSlot == 1 && slot2 != null)
         {
-            slot2.SetActive(false);
+            slot1.SetActive(false);
             slot1 = item;
             holdingSlot = 1;
             slot1.SetActive(true);

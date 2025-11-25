@@ -62,11 +62,7 @@ public class Mystery_Box_Open : MonoBehaviour
                 
             }
         }
-        else
-        {
-            open_prompt.SetActive(false);
-            pickup_prompt.SetActive(false);
-        }
+        
     }
 
     void OnTriggerStay(Collider other)
@@ -101,6 +97,8 @@ public class Mystery_Box_Open : MonoBehaviour
     {
         
         inRange = false;
+        open_prompt.SetActive(false);
+        pickup_prompt.SetActive(false);
     }
 
 }

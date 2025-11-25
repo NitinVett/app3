@@ -15,10 +15,20 @@ public class VendingMachine : MonoBehaviour
         {
             Sequence sequence = DOTween.Sequence();
             sequence.Append(vendingMachine.transform.DOMoveY(transform.position.y+2,1f));
-            
             sequence.Append(vendingMachine.transform.DOMoveY(transform.position.y,1f));
-
             inventory.money-=cost;
+            CharacterController player = other.gameObject.GetComponent<CharacterController>();
+            if(vendingMachine.name == "CoffeeSprintMachine"){
+                player.sprintSpeed +=1;
+            }
+            else if (vendingMachine.name == "FoodHealthMachine")
+            {
+                player.health = 200;
+            }
+            else if(vendingMachine.name == "SodaMoveMachine")
+            {
+                player.moveSpeed +=1;
+            }
         }
         
     }

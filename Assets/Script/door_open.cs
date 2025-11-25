@@ -8,7 +8,9 @@ public class door_open : MonoBehaviour
     void OnTriggerStay(Collider other)
     {
         open_prompt.SetActive(true);
-         if (Input.GetKey(KeyCode.E))
+        CharacterInventory player = other.gameObject.GetComponent<CharacterInventory>();
+        
+         if (Input.GetKey(KeyCode.E) && player.money >= 100)
         {
             door.transform.DORotate(new Vector3(90, 90, 0), 1f);
             gameObject.SetActive(false);

@@ -735,7 +735,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vendingMachine: {fileID: 1288587099}
   prompt: {fileID: 2023166169}
-  cost: 500
+  cost: 100
 --- !u!1 &55977219
 GameObject:
   m_ObjectHideFlags: 0
@@ -859,7 +859,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vendingMachine: {fileID: 1255961363}
   prompt: {fileID: 2023166169}
-  cost: 500
+  cost: 100
 --- !u!4 &56017687 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4252784401376168, guid: 22a3fd8d3e59a1149bdcd775c0e87241, type: 3}
@@ -16402,6 +16402,7 @@ MonoBehaviour:
   buyPrompt: {fileID: 1002208877}
   takePrompt: {fileID: 897233495}
   cost: 100
+  machineWeaponsFolder: {fileID: 619849898}
 --- !u!4 &1745628501 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4252784401376168, guid: 22a3fd8d3e59a1149bdcd775c0e87241, type: 3}
@@ -18640,8 +18641,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   maxHealth: 100
-  moveSpeed: 6
-  sprintSpeed: 0
+  moveSpeed: 3
+  sprintSpeed: 6
   pickupDistance: 50
   fpsCam: {fileID: 151917615}
 --- !u!54 &1973277211

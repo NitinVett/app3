@@ -53,6 +53,6 @@ public class MeleeWeapons : MonoBehaviour
         {
             damage+= damage;
         }
-        weaponRenderer.material.color = Color.cyan;
+        weaponRenderer.material.color = Color.black;
     }
 }

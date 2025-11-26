@@ -23,14 +23,13 @@ public class VendingMachine : MonoBehaviour
             }
             else if (vendingMachine.name == "FoodHealthMachine")
             {
-                player.health = 200;
+                player.maxHealth = 200;
             }
             else if(vendingMachine.name == "SodaMoveMachine")
             {
                 player.moveSpeed +=1;
             }
         }
-        
     }
 
     void OnTriggerExit(Collider other)

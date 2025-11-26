@@ -3,6 +3,7 @@ using UnityEngine;
 public class CharacterController : MonoBehaviour
 {
     public float health = 100;
+    public float maxHealth = 100;
     public float moveSpeed = 6f;
     public float sprintSpeed;
     public float pickupDistance = 50;

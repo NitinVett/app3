@@ -3,6 +3,8 @@ using UnityEngine;
 public class MeleeWeapons : MonoBehaviour
 {
     public Animator attack1;
+    public Renderer weaponRenderer;
+
 
 
     public int damage = 50;
@@ -37,4 +39,20 @@ public class MeleeWeapons : MonoBehaviour
         }
     }
 
+    public void Upgrade()
+    {
+        if(gameObject.name == "Knife")
+        {
+            damage += 50;
+        }
+        else if(gameObject.name == "Hockeystick")
+        {
+            damage+= 70;
+        }
+        else if(gameObject.name == "Axe")
+        {
+            damage+= damage;
+        }
+        weaponRenderer.material.color = Color.cyan;
+    }
 }

@@ -56,15 +56,7 @@ public class CharacterController : MonoBehaviour
             rb.linearVelocity = velocity;
         }
     }
-    void OnTriggerStay(Collider other)
-    {
-        enemy = other.gameObject.GetComponent<Enemy>();
-        if (other.gameObject.tag == "Enemy" && enemy.attackCooldown == 0f )
-        {
-            TakeDamage(enemy.damage);
-            enemy.attackCooldown = 3f;
-        }
-    }
+    
     public void TakeDamage(float damageAmount)
     {
         if(health > 0)

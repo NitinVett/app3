@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using TMPro;
 public class CharacterController : MonoBehaviour
 {
     public float health = 100;
@@ -11,6 +11,7 @@ public class CharacterController : MonoBehaviour
     private Enemy enemy;
     private Rigidbody rb;
     CharacterInventory inventory;
+    public TMP_Text HealthGUI;
 
     void Start()
     {
@@ -74,6 +75,8 @@ public class CharacterController : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        HealthGUI.text = $"{health}/{maxHealth}";
     }
     public void HealHealth(float healAmount)
     {   
@@ -92,36 +95,7 @@ public class CharacterController : MonoBehaviour
         {
             CharacterInventory inventory = gameObject.GetComponent<CharacterInventory>();
             GameObject item = hit.collider.gameObject;
-
-            // put in slot 2
-            if(inventory.holdingSlot == 1 && inventory.slot2 == null)
-            {
-                inventory.slot1.SetActive(false);
-                if (item.tag == "axe")
-                {
-                    inventory.slot2 = inventory.axe;
-                }
-                
-                inventory.holdingSlot = 2;
-                inventory.slot2.SetActive(true);
-            }
-            // put in slot 1
-            else if(inventory.holdingSlot == 1 && inventory.slot2 != null)
-            {
-                inventory.slot2.SetActive(false);
-                inventory.slot1 = item;
-                inventory.holdingSlot = 1;
-                inventory.slot1.SetActive(true);
-            }
-            // put in slot 2
-            else if(inventory.holdingSlot == 2)
-            {
-                inventory.slot1.SetActive(false);
-                inventory.slot2 = item;
-                inventory.holdingSlot = 2;
-                inventory.slot2.SetActive(true);
-            }
-            item.SetActive(false);
+            inventory.pickup(item.tag);
         }
     }
 }

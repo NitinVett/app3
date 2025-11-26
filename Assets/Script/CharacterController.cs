@@ -10,9 +10,11 @@ public class CharacterController : MonoBehaviour
     public Camera fpsCam;
     private Enemy enemy;
     private Rigidbody rb;
+    CharacterInventory inventory;
 
     void Start()
     {
+        inventory = gameObject.GetComponent<CharacterInventory>();
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
         
@@ -77,20 +79,8 @@ public class CharacterController : MonoBehaviour
     }
     public void SwapWeapon()
     {
-        CharacterInventory inventory = gameObject.GetComponent<CharacterInventory>();
-        if(inventory.holdingSlot == 1 && inventory.slot2 != null)
-        {
-            inventory.holdingSlot = 2;
-            inventory.slot1.SetActive(false);
-            inventory.slot2.SetActive(true);
-
-        }
-        else if(inventory.holdingSlot == 2)
-        {
-            inventory.holdingSlot = 1;
-            inventory.slot2.SetActive(false);
-            inventory.slot1.SetActive(true);
-        }
+        inventory.swapWeapons();
+        
     }
     public void Pickup()
     {

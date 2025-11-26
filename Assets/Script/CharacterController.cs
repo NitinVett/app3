@@ -4,8 +4,8 @@ public class CharacterController : MonoBehaviour
 {
     public float health = 100;
     public float maxHealth = 100;
-    public float moveSpeed = 6f;
-    public float sprintSpeed;
+    public float moveSpeed = 3f;
+    public float sprintSpeed = 6f;
     public float pickupDistance = 50;
     public Camera fpsCam;
     private Enemy enemy;
@@ -44,14 +44,16 @@ public class CharacterController : MonoBehaviour
 
         Vector3 direction = (transform.right * x + transform.forward * z).normalized;
         
-        sprintSpeed = moveSpeed;
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            sprintSpeed *= 2;
+            Vector3 velocity = new Vector3(direction.x * sprintSpeed, rb.linearVelocity.y, direction.z * sprintSpeed);
+            rb.linearVelocity = velocity;
         }
-        
-        Vector3 velocity = new Vector3(direction.x * sprintSpeed, rb.linearVelocity.y, direction.z * sprintSpeed);
-        rb.linearVelocity = velocity;
+        else
+        {
+            Vector3 velocity = new Vector3(direction.x * moveSpeed, rb.linearVelocity.y, direction.z * moveSpeed);
+            rb.linearVelocity = velocity;
+        }
     }
     void OnTriggerStay(Collider other)
     {

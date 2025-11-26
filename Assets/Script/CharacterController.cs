@@ -93,6 +93,7 @@ public class CharacterController : MonoBehaviour
             inventory.slot2.SetActive(false);
             inventory.slot1.SetActive(true);
         }
+        else return;
     }
     public void Pickup()
     {

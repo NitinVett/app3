@@ -9,9 +9,10 @@ public class WashingMachine : MonoBehaviour
     public int cost = 1000;
     private bool purchased = false;
     private GameObject depositedWeapon;    
-    private GameObject depositedWeaponMachine;    
+    private GameObject weapomInMachine;    
     public Transform machineWeaponsFolder;        
     private GameObject[] machineWeapons;
+    public int lastSlotHeld;
 
 
     void Start()
@@ -52,9 +53,17 @@ public class WashingMachine : MonoBehaviour
 
                 // Get the weapon the player is holding
                 if (inventory.holdingSlot == 1)
+                    {
+                    lastSlotHeld = 1;
                     depositedWeapon = inventory.slot1;
-                else
+                    inventory.slot1 = null;
+                    }
+                else{
+                    lastSlotHeld = 2;
                     depositedWeapon = inventory.slot2;
+                    inventory.slot2 = null;
+                    }
+
 
                 // Upgrade the player's real weapon
                 depositedWeapon.GetComponent<MeleeWeapons>().Upgrade();
@@ -70,8 +79,8 @@ public class WashingMachine : MonoBehaviour
                         Debug.Log(w.name);
                         Debug.Log(depositedWeapon.name);
 
-                        depositedWeaponMachine = w;
-                        depositedWeaponMachine.SetActive(true);
+                        weapomInMachine = w;
+                        weapomInMachine.SetActive(true);
                         break;
                     }
                 }
@@ -86,17 +95,26 @@ public class WashingMachine : MonoBehaviour
             {
                 // Return weapon to player
                 if (depositedWeapon != null)
+                {
                     depositedWeapon.SetActive(true);
-
+                    if (lastSlotHeld == 1)
+                    {
+                        inventory.slot1 = depositedWeapon;
+                    }
+                    else
+                    {
+                        inventory.slot2 = depositedWeapon;
+                    }
+                }
+                    
                 // Hide weapon inside machine
-                if (depositedWeaponMachine != null)
-                    depositedWeaponMachine.SetActive(false);
+                if (weapomInMachine != null){
+                    weapomInMachine.SetActive(false);
+                }
 
                 depositedWeapon = null;
-                depositedWeaponMachine = null;
-
+                weapomInMachine = null;
                 purchased = false;
-
                 takePrompt.SetActive(false);
                 buyPrompt.SetActive(true);
             }

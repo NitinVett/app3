@@ -16403,6 +16403,7 @@ MonoBehaviour:
   takePrompt: {fileID: 897233495}
   cost: 100
   machineWeaponsFolder: {fileID: 619849898}
+  lastSlotHeld: 0
 --- !u!4 &1745628501 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4252784401376168, guid: 22a3fd8d3e59a1149bdcd775c0e87241, type: 3}
@@ -18524,9 +18525,9 @@ GameObject:
   - component: {fileID: 1973277209}
   - component: {fileID: 1973277208}
   - component: {fileID: 1973277207}
-  - component: {fileID: 1973277206}
   - component: {fileID: 1973277212}
   - component: {fileID: 1973277210}
+  - component: {fileID: 1973277206}
   - component: {fileID: 1973277211}
   m_Layer: 0
   m_Name: Player

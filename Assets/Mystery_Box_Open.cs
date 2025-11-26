@@ -75,14 +75,14 @@ public class Mystery_Box_Open : MonoBehaviour
     IEnumerator CycleWeapons()
     {
         GameObject currWeapon = weapons[0];
-            for(int i = 0; i < 10; i++)
-            {
-                currWeapon.SetActive(false);
-                int r = UnityEngine.Random.Range(0,weapons.Length);
-                currWeapon = weapons[r];
-                currWeapon.SetActive(true);
-                yield return new WaitForSeconds(1f);
-            }
+        for(int i = 0; i < 10; i++)
+        {
+            currWeapon.SetActive(false);
+            int r = UnityEngine.Random.Range(0,weapons.Length);
+            currWeapon = weapons[r];
+            currWeapon.SetActive(true);
+            yield return new WaitForSeconds(1f);
+        }
         activeWeapon = currWeapon;
         pickup = true;
         

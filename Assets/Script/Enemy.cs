@@ -5,13 +5,14 @@ public class Enemy : MonoBehaviour
     public int moneyDrop = 100;
     public float health = 100;
     public float damage = 20;
-    public Transform player;
+    private Transform player;
     private NavMeshAgent agent;
     public float attackCooldown = 0;
     //public Animation anim;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
         agent = GetComponent<NavMeshAgent>();
         //anim = gameObject.GetComponent<Animation>();
     }
@@ -19,6 +20,14 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(attackCooldown > 0f)
+        {
+            attackCooldown -= Time.deltaTime;
+        }
+        if(attackCooldown < 0f)
+        {
+            attackCooldown = 0;
+        }
         if (player != null){
             agent.SetDestination(player.position);
         }

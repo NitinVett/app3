@@ -56,13 +56,16 @@ public class WashingMachine : MonoBehaviour
                     {
                     lastSlotHeld = 1;
                     depositedWeapon = inventory.slot1;
+                    inventory.swapWeapons();
                     inventory.slot1 = null;
                     }
                 else{
                     lastSlotHeld = 2;
                     depositedWeapon = inventory.slot2;
+                    inventory.swapWeapons();
                     inventory.slot2 = null;
                     }
+                
 
 
                 // Upgrade the player's real weapon
@@ -97,14 +100,7 @@ public class WashingMachine : MonoBehaviour
                 if (depositedWeapon != null)
                 {
                     depositedWeapon.SetActive(true);
-                    if (lastSlotHeld == 1)
-                    {
-                        inventory.slot1 = depositedWeapon;
-                    }
-                    else
-                    {
-                        inventory.slot2 = depositedWeapon;
-                    }
+                    inventory.pickup(depositedWeapon.tag);
                 }
                     
                 // Hide weapon inside machine

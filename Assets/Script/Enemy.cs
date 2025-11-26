@@ -37,7 +37,7 @@ public class Enemy : MonoBehaviour
             }
         }
         
-        Debug.Log((player.transform.position - transform.position).magnitude);
+        
     }
     public void TakeDamage(float damageAmount)
     {

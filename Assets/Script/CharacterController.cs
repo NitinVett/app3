@@ -88,6 +88,7 @@ public class CharacterController : MonoBehaviour
             CharacterInventory inventory = gameObject.GetComponent<CharacterInventory>();
             GameObject item = hit.collider.gameObject;
             inventory.pickup(item.tag);
+            item.SetActive(false);
         }
     }
 }

@@ -7,7 +7,7 @@ using TMPro;
 
 public class Gun : MonoBehaviour
 {
-    public int damage = 1;
+    public int damage = 10;
     public int AmmoInGun = 30;
     public int storedAmmo = 90;
     public int magSize = 30;
@@ -45,6 +45,8 @@ public class Gun : MonoBehaviour
     {  
         recoil.Play("Recoil");
         AmmoInGun-=1;
+        Debug.DrawRay(fpsCam.transform.position, fpsCam.transform.forward * 100f, Color.red, 1f);
+
         RaycastHit hit;
         int layerMask = 1 << LayerMask.NameToLayer("enemy");
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, Mathf.Infinity, layerMask))
@@ -61,7 +63,6 @@ public class Gun : MonoBehaviour
             loadNumBullets = magSize-AmmoInGun;
             AmmoInGun+= loadNumBullets;
             storedAmmo-= loadNumBullets;
-            
         }
         else if (storedAmmo < magSize)
         {

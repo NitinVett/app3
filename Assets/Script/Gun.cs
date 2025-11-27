@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using TMPro;
+
 
 public class Gun : MonoBehaviour
 {
@@ -12,10 +14,23 @@ public class Gun : MonoBehaviour
     public int loadNumBullets;
     public Animator recoil;
     public Camera fpsCam;
-    
+    public TMP_Text AmmoGUI;
+
+    void OnEnable()
+        {
+            
+            AmmoGUI.gameObject.SetActive(true);
+        }
+
+        void OnDisable()
+        {
+            AmmoGUI.gameObject.SetActive(false);
+        }
 
     void Update()
     {
+        AmmoGUI.text = $"{AmmoInGun}/{storedAmmo}";
+
         if (Input.GetButtonDown("Fire1") && AmmoInGun > 0)
         {
             Shoot();

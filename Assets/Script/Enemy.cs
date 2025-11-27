@@ -30,7 +30,7 @@ public class Enemy : MonoBehaviour
         }
         if (player != null){
             agent.SetDestination(player.position);
-            if (((player.transform.position - transform.position).magnitude < 1.9f) && attackCooldown == 0)
+            if (((player.transform.position - transform.position).magnitude < 1.9f) && attackCooldown <= 0)
             {
             attackCooldown = 3f;
             player.GetComponent<CharacterController>().TakeDamage(damage);

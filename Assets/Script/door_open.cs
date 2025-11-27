@@ -12,7 +12,7 @@ public class door_open : MonoBehaviour
         
          if (Input.GetKey(KeyCode.E) && player.money >= 100)
         {
-            door.transform.DORotate(new Vector3(90, 90, 0), 1f);
+            door.transform.DOLocalRotate(new Vector3(0, door.transform.localEulerAngles.y + 90, 0), 1f);
             gameObject.SetActive(false);
             open_prompt.SetActive(false);
         }

@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 using System.Collections.Generic;
-
+using TMPro;
 public class CharacterInventory : MonoBehaviour
 {
     public GameObject slot1;
@@ -12,9 +12,10 @@ public class CharacterInventory : MonoBehaviour
     public GameObject axe;
     public GameObject ak47;
     public int money;
+    public TMP_Text MoneyGUI;
 
     private Dictionary<string, (Vector3 pos, Quaternion rot)> weaponTransforms =
-        new Dictionary<string, (Vector3 pos, Quaternion rot)>();
+    new Dictionary<string, (Vector3 pos, Quaternion rot)>();
 
     void Start()
     {
@@ -28,6 +29,11 @@ public class CharacterInventory : MonoBehaviour
         slot1 = knife;
         slot2 = null;
         knife.SetActive(true);
+    }
+    void Update()
+    {
+        MoneyGUI.text = $"${money}";
+
     }
 
     GameObject itemNameToItem(string itemName)

@@ -2511,7 +2511,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -1280058959441750331, guid: c20daf91d2bce304c85fec03f5fafd3b, type: 3}
       propertyPath: m_Convex
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -1280058959441750331, guid: c20daf91d2bce304c85fec03f5fafd3b, type: 3}
       propertyPath: m_Enabled
@@ -12716,9 +12716,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 537783010}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0.5}
-  m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 373, y: -34}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 525, y: -42}
   m_SizeDelta: {x: 1000, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1113993883
@@ -13719,7 +13719,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1984956729}
   - {fileID: 682244615}
   - {fileID: 25116336}
   - {fileID: 2116409738}
@@ -15003,6 +15002,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4003897846794392, guid: cd87e5026d1695148aabe96121c526ef, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1212046918}
+    - targetCorrespondingSourceObject: {fileID: 4003897846794392, guid: cd87e5026d1695148aabe96121c526ef, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1984956729}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cd87e5026d1695148aabe96121c526ef, type: 3}
 --- !u!4 &1305105243 stripped
@@ -18379,9 +18381,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 537783010}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 275, y: -42}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 350, y: -42}
   m_SizeDelta: {x: 1000, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1602289699
@@ -18431,8 +18433,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 100
-  m_fontSizeBase: 100
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -22657,7 +22659,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 267ce8ea74c7bf14ea92f408fb959d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 1000
   maxHealth: 100
   moveSpeed: 3
   sprintSpeed: 6
@@ -23040,7 +23042,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1212046918}
+    m_TransformParent: {fileID: 500489735}
     m_Modifications:
     - target: {fileID: 5129796214779991510, guid: e4a3c0459c0676f4a81d72f14ce79673, type: 3}
       propertyPath: m_LocalScale.x
@@ -23048,7 +23050,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5129796214779991510, guid: e4a3c0459c0676f4a81d72f14ce79673, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.73
+      value: -0.72999954
       objectReference: {fileID: 0}
     - target: {fileID: 5129796214779991510, guid: e4a3c0459c0676f4a81d72f14ce79673, type: 3}
       propertyPath: m_LocalPosition.y

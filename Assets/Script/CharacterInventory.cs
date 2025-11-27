@@ -13,6 +13,8 @@ public class CharacterInventory : MonoBehaviour
     public GameObject ak47;
     public int money;
     public TMP_Text MoneyGUI;
+    public TMP_Text WeaponNameGUI;
+
 
     private Dictionary<string, (Vector3 pos, Quaternion rot)> weaponTransforms =
     new Dictionary<string, (Vector3 pos, Quaternion rot)>();
@@ -23,7 +25,6 @@ public class CharacterInventory : MonoBehaviour
         weaponTransforms.Add("axe", (axe.transform.localPosition, axe.transform.localRotation));
         weaponTransforms.Add("hockeystick", (hockeystick.transform.localPosition, hockeystick.transform.localRotation));
         weaponTransforms.Add("ak47", (ak47.transform.localPosition, ak47.transform.localRotation));
-
         money = 0;
         holdingSlot = 1;
         slot1 = knife;
@@ -32,8 +33,15 @@ public class CharacterInventory : MonoBehaviour
     }
     void Update()
     {
+        if (holdingSlot == 1)
+        {
+            WeaponNameGUI.text = $"{slot1.name}";
+        }
+        else if (holdingSlot == 2)
+        {
+            WeaponNameGUI.text = $"{slot2.name}";
+        }
         MoneyGUI.text = $"${money}";
-
     }
 
     GameObject itemNameToItem(string itemName)

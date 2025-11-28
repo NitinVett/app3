@@ -76,7 +76,6 @@ public class CharacterController : MonoBehaviour
     public void SwapWeapon()
     {
         inventory.swapWeapons();
-        
     }
     public void Pickup()
     {

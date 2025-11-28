@@ -19,15 +19,11 @@ public class WashingMachine : MonoBehaviour
     {
         // Load all machine weapon models into array
         machineWeapons = new GameObject[machineWeaponsFolder.childCount];
-
         for (int i = 0; i < machineWeaponsFolder.childCount; i++)
         {
             machineWeapons[i] = machineWeaponsFolder.GetChild(i).gameObject;
         }
     }
-
-
-
     void OnTriggerStay(Collider other)
     {
         CharacterInventory inventory = other.GetComponent<CharacterInventory>();

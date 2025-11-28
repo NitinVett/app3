@@ -45,7 +45,6 @@ public class Gun : MonoBehaviour
     {  
         recoil.Play("Recoil");
         AmmoInGun-=1;
-        Debug.DrawRay(fpsCam.transform.position, fpsCam.transform.forward * 100f, Color.red, 1f);
 
         RaycastHit hit;
         int layerMask = 1 << LayerMask.NameToLayer("enemy");

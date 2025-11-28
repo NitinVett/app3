@@ -14,13 +14,15 @@ public class CharacterInventory : MonoBehaviour
     public int money;
     public TMP_Text MoneyGUI;
     public TMP_Text WeaponNameGUI;
-
+    public bool hasFoodPerk = false;
+    public bool hasSodaPerk = false;
+    public bool hasCoffeePerk = false;
 
     private Dictionary<string, (Vector3 pos, Quaternion rot)> weaponTransforms =
     new Dictionary<string, (Vector3 pos, Quaternion rot)>();
 
     void Start()
-    {
+   {
         weaponTransforms.Add("knife", (knife.transform.localPosition, knife.transform.localRotation));
         weaponTransforms.Add("axe", (axe.transform.localPosition, axe.transform.localRotation));
         weaponTransforms.Add("hockeystick", (hockeystick.transform.localPosition, hockeystick.transform.localRotation));
@@ -89,7 +91,6 @@ public class CharacterInventory : MonoBehaviour
             slot2.SetActive(true);
         }
     }
-
     public void swapWeapons()
     {
         if (holdingSlot == 1 && slot2 != null)
@@ -106,5 +107,27 @@ public class CharacterInventory : MonoBehaviour
             SetWeaponTransform(slot1);
             slot1.SetActive(true);
         }
+    }
+    public void BuyPerk(string perk, int cost)
+    {
+        CharacterController player = gameObject.GetComponent<CharacterController>();
+            if(perk == "Coffee" && hasCoffeePerk == false)
+            {
+                player.sprintSpeed +=1;
+                money -= cost;
+                hasCoffeePerk = true;
+            }
+            else if (perk == "Food" && hasFoodPerk == false)
+            {
+                player.maxHealth = 200;
+                money -= cost;
+                hasFoodPerk = true;
+            }
+            else if(perk == "Soda" && hasSodaPerk == false)
+            {
+                player.moveSpeed +=1;
+                money -= cost;
+                hasSodaPerk = true;
+            }
     }
 }

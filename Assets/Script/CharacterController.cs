@@ -18,10 +18,11 @@ public class CharacterController : MonoBehaviour
         inventory = gameObject.GetComponent<CharacterInventory>();
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
-        
     }
     void Update()
     {
+        HealthGUI.text = $"{health}/{maxHealth}";
+
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             SwapWeapon();
@@ -67,8 +68,6 @@ public class CharacterController : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
-        HealthGUI.text = $"{health}/{maxHealth}";
     }
     public void HealHealth(float healAmount)
     {   

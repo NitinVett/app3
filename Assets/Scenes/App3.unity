@@ -1024,7 +1024,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vendingMachine: {fileID: 1288587099}
   prompt: {fileID: 2023166169}
-  cost: 100
+  cost: 2500
 --- !u!1 &55977219
 GameObject:
   m_ObjectHideFlags: 0
@@ -1148,7 +1148,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vendingMachine: {fileID: 1255961363}
   prompt: {fileID: 2023166169}
-  cost: 100
+  cost: 2500
 --- !u!4 &56017687 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4252784401376168, guid: 22a3fd8d3e59a1149bdcd775c0e87241, type: 3}
@@ -2929,12 +2929,12 @@ GameObject:
   - component: {fileID: 223087535}
   - component: {fileID: 223087534}
   m_Layer: 5
-  m_Name: CoffeePerk
+  m_Name: CoffeePerkGUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &223087533
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2951,8 +2951,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 58, y: 164}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 118.7, y: 55}
+  m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &223087534
 MonoBehaviour:
@@ -4473,12 +4473,12 @@ GameObject:
   - component: {fileID: 407623014}
   - component: {fileID: 407623013}
   m_Layer: 5
-  m_Name: FoodPerk
+  m_Name: FoodPerkGUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &407623012
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4495,8 +4495,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 162, y: 164}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 242.2, y: 55}
+  m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &407623013
 MonoBehaviour:
@@ -6400,7 +6400,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vendingMachine: {fileID: 1970078521}
   prompt: {fileID: 2023166169}
-  cost: 100
+  cost: 2500
 --- !u!1001 &578780597
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20850,12 +20850,12 @@ GameObject:
   - component: {fileID: 1807373380}
   - component: {fileID: 1807373379}
   m_Layer: 5
-  m_Name: SoadPerk
+  m_Name: SoadPerkGUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1807373378
 RectTransform:
   m_ObjectHideFlags: 0
@@ -20872,8 +20872,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 162, y: 59}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 177.7, y: 55}
+  m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1807373379
 MonoBehaviour:
@@ -22861,6 +22861,9 @@ MonoBehaviour:
   money: 0
   MoneyGUI: {fileID: 1113993883}
   WeaponNameGUI: {fileID: 1449223851}
+  CoffeePerkGUI: {fileID: 223087534}
+  SodaPerkGUI: {fileID: 1807373379}
+  FoodPerkGUI: {fileID: 407623013}
   hasFoodPerk: 0
   hasSodaPerk: 0
   hasCoffeePerk: 0
@@ -23649,7 +23652,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Press e to buy drink(100)
+  m_text: Press e to buy (2500)
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

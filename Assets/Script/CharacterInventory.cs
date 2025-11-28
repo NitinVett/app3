@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using System.Collections.Generic;
 using TMPro;
+using UnityEngine.UI;
 public class CharacterInventory : MonoBehaviour
 {
     public GameObject slot1;
@@ -14,6 +15,10 @@ public class CharacterInventory : MonoBehaviour
     public int money;
     public TMP_Text MoneyGUI;
     public TMP_Text WeaponNameGUI;
+    public RawImage CoffeePerkGUI;
+    public RawImage SodaPerkGUI;
+    public RawImage FoodPerkGUI;
+
     public bool hasFoodPerk = false;
     public bool hasSodaPerk = false;
     public bool hasCoffeePerk = false;
@@ -113,9 +118,10 @@ public class CharacterInventory : MonoBehaviour
         CharacterController player = gameObject.GetComponent<CharacterController>();
             if(perk == "Coffee" && hasCoffeePerk == false)
             {
-                player.sprintSpeed +=1;
+                player.sprintSpeed +=2;
                 money -= cost;
                 hasCoffeePerk = true;
+                CoffeePerkGUI.gameObject.SetActive(true);
                 return true;
             }
             else if (perk == "Food" && hasFoodPerk == false)
@@ -123,6 +129,7 @@ public class CharacterInventory : MonoBehaviour
                 player.maxHealth = 200;
                 money -= cost;
                 hasFoodPerk = true;
+                FoodPerkGUI.gameObject.SetActive(true);
                 return true;
             }
             else if(perk == "Soda" && hasSodaPerk == false)
@@ -130,6 +137,7 @@ public class CharacterInventory : MonoBehaviour
                 player.moveSpeed +=1;
                 money -= cost;
                 hasSodaPerk = true;
+                SodaPerkGUI.gameObject.SetActive(true);
                 return true;
             }
         return false;

@@ -108,7 +108,7 @@ public class CharacterInventory : MonoBehaviour
             slot1.SetActive(true);
         }
     }
-    public void BuyPerk(string perk, int cost)
+    public bool BuyPerk(string perk, int cost)
     {
         CharacterController player = gameObject.GetComponent<CharacterController>();
             if(perk == "Coffee" && hasCoffeePerk == false)
@@ -116,18 +116,22 @@ public class CharacterInventory : MonoBehaviour
                 player.sprintSpeed +=1;
                 money -= cost;
                 hasCoffeePerk = true;
+                return true;
             }
             else if (perk == "Food" && hasFoodPerk == false)
             {
                 player.maxHealth = 200;
                 money -= cost;
                 hasFoodPerk = true;
+                return true;
             }
             else if(perk == "Soda" && hasSodaPerk == false)
             {
                 player.moveSpeed +=1;
                 money -= cost;
                 hasSodaPerk = true;
+                return true;
             }
+        return false;
     }
 }

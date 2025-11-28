@@ -12,23 +12,22 @@ public class VendingMachine : MonoBehaviour
         CharacterInventory inventory = other.gameObject.GetComponent<CharacterInventory>();
         if (Input.GetKeyDown(KeyCode.E) && inventory.money >= cost)
         {
-            CharacterController player = other.gameObject.GetComponent<CharacterController>();
+            bool bought = false; 
             if(vendingMachine.name == "CoffeeSprintMachine")
             {
-                inventory.BuyPerk("Coffee", cost);
-                PlayBounceAnimation();
-
+                bought = inventory.BuyPerk("Coffee", cost);
             }
             else if (vendingMachine.name == "FoodHealthMachine")
             {
-                inventory.BuyPerk("Food", cost);
-                PlayBounceAnimation();
-
+                bought = inventory.BuyPerk("Food", cost);
             }
             else if(vendingMachine.name == "SodaMoveMachine")
             {
-                inventory.BuyPerk("Soda", cost);
-                PlayBounceAnimation();
+                bought = inventory.BuyPerk("Soda", cost);
+            }                
+            if (bought)
+            {
+            PlayBounceAnimation();
             }
         }
     }

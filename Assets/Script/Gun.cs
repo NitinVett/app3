@@ -45,7 +45,6 @@ public class Gun : MonoBehaviour
     {  
         recoil.Play("Recoil");
         AmmoInGun-=1;
-
         RaycastHit hit;
         int layerMask = 1 << LayerMask.NameToLayer("enemy");
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, Mathf.Infinity, layerMask))

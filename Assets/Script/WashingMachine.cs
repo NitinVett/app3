@@ -61,9 +61,6 @@ public class WashingMachine : MonoBehaviour
                     inventory.swapWeapons();
                     inventory.slot2 = null;
                     }
-                
-
-
                 // Upgrade the player's real weapon
                 depositedWeapon.GetComponent<MeleeWeapons>().Upgrade();
 
@@ -73,11 +70,13 @@ public class WashingMachine : MonoBehaviour
                 // Find the matching machine model
                 foreach (GameObject w in machineWeapons)
                 {
+                    Debug.Log("Deposited: " + depositedWeapon.name);
+                    Debug.Log(w.name);
+
                     if (w.name == depositedWeapon.name)
                     {
                         Debug.Log(w.name);
                         Debug.Log(depositedWeapon.name);
-
                         weapomInMachine = w;
                         weapomInMachine.SetActive(true);
                         break;

@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 public class CharacterController : MonoBehaviour
 {
     public float health = 100;
@@ -12,7 +13,7 @@ public class CharacterController : MonoBehaviour
     private Rigidbody rb;
     CharacterInventory inventory;
     public TMP_Text HealthGUI;
-
+    public float healthRegen = 3f;
     void Start()
     {
         inventory = gameObject.GetComponent<CharacterInventory>();
@@ -22,7 +23,16 @@ public class CharacterController : MonoBehaviour
     void Update()
     {
         HealthGUI.text = $"{health}/{maxHealth}";
-
+        Debug.Log("" + healthRegen);
+        if(healthRegen > 0f && health < maxHealth)
+        {
+            healthRegen -= Time.deltaTime;
+        }
+        if(healthRegen < 0f)
+        {
+            healthRegen = 3f;
+            health += 20;
+        }
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             SwapWeapon();
@@ -67,6 +77,7 @@ public class CharacterController : MonoBehaviour
         if(health <= 0)
         {
             Destroy(gameObject);
+            SceneManager.LoadScene("MainMenuScene");
         }
     }
     public void HealHealth(float healAmount)

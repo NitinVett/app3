@@ -1024,7 +1024,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vendingMachine: {fileID: 1288587099}
   prompt: {fileID: 2023166169}
-  cost: 2500
+  cost: 100
 --- !u!1 &55977219
 GameObject:
   m_ObjectHideFlags: 0
@@ -1148,7 +1148,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vendingMachine: {fileID: 1255961363}
   prompt: {fileID: 2023166169}
-  cost: 2500
+  cost: 100
 --- !u!4 &56017687 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4252784401376168, guid: 22a3fd8d3e59a1149bdcd775c0e87241, type: 3}
@@ -2515,7 +2515,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -1280058959441750331, guid: c20daf91d2bce304c85fec03f5fafd3b, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -1280058959441750331, guid: c20daf91d2bce304c85fec03f5fafd3b, type: 3}
       propertyPath: m_IsTrigger
@@ -2615,6 +2615,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4311248730837266121, guid: c20daf91d2bce304c85fec03f5fafd3b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 183019477}
+    - targetCorrespondingSourceObject: {fileID: 4311248730837266121, guid: c20daf91d2bce304c85fec03f5fafd3b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 183019485}
   m_SourcePrefab: {fileID: 100100000, guid: c20daf91d2bce304c85fec03f5fafd3b, type: 3}
 --- !u!1 &183019475 stripped
 GameObject:
@@ -2633,7 +2636,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 098d7eec3a2f946c4abb8b89241b75c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 100
+  damage: 50
   AmmoInGun: 30
   storedAmmo: 90
   magSize: 30
@@ -2668,6 +2671,26 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3503643608116425843, guid: c20daf91d2bce304c85fec03f5fafd3b, type: 3}
   m_PrefabInstance: {fileID: 183019474}
   m_PrefabAsset: {fileID: 0}
+--- !u!23 &183019483 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 2365618580642795292, guid: c20daf91d2bce304c85fec03f5fafd3b, type: 3}
+  m_PrefabInstance: {fileID: 183019474}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &183019485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 183019475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26ae2ce92815d4d45a84df6287988461, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attack1: {fileID: 0}
+  weaponRenderer: {fileID: 183019483}
+  damage: 50
 --- !u!4 &191345659 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4252784401376168, guid: 22a3fd8d3e59a1149bdcd775c0e87241, type: 3}
@@ -4387,6 +4410,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   open_prompt: {fileID: 2079666540}
   pickup_prompt: {fileID: 1567977897}
+  cost: 100
 --- !u!65 &399547882
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6400,7 +6424,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vendingMachine: {fileID: 1970078521}
   prompt: {fileID: 2023166169}
-  cost: 2500
+  cost: 100
 --- !u!1001 &578780597
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7019,6 +7043,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   door: {fileID: 1871463831}
   open_prompt: {fileID: 2079666540}
+  cost: 100
 --- !u!65 &646377199
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10918,23 +10943,23 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 2010583942}
+    m_TransformParent: {fileID: 1069743560}
     m_Modifications:
     - target: {fileID: 5129796214779991510, guid: e4a3c0459c0676f4a81d72f14ce79673, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.3749999
+      value: 1.3749998
       objectReference: {fileID: 0}
     - target: {fileID: 5129796214779991510, guid: e4a3c0459c0676f4a81d72f14ce79673, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.61
+      value: -13.708221
       objectReference: {fileID: 0}
     - target: {fileID: 5129796214779991510, guid: e4a3c0459c0676f4a81d72f14ce79673, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.06
+      value: -1.2997804
       objectReference: {fileID: 0}
     - target: {fileID: 5129796214779991510, guid: e4a3c0459c0676f4a81d72f14ce79673, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 44.97
+      value: -1.4078689
       objectReference: {fileID: 0}
     - target: {fileID: 5129796214779991510, guid: e4a3c0459c0676f4a81d72f14ce79673, type: 3}
       propertyPath: m_LocalRotation.w
@@ -10942,7 +10967,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5129796214779991510, guid: e4a3c0459c0676f4a81d72f14ce79673, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5129796214779991510, guid: e4a3c0459c0676f4a81d72f14ce79673, type: 3}
       propertyPath: m_LocalRotation.y
@@ -10950,7 +10975,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5129796214779991510, guid: e4a3c0459c0676f4a81d72f14ce79673, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5129796214779991510, guid: e4a3c0459c0676f4a81d72f14ce79673, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -11539,7 +11564,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Press e to wash your gun
+  m_text: Press e to wash your gun(100)
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -12545,7 +12570,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3503643608116425843, guid: c20daf91d2bce304c85fec03f5fafd3b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.207
+      value: 0.244
       objectReference: {fileID: 0}
     - target: {fileID: 3503643608116425843, guid: c20daf91d2bce304c85fec03f5fafd3b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -15379,6 +15404,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4419083434238170, guid: 71442e8cd72511e4fabb72f1a2cc82dd, type: 3}
       insertIndex: -1
       addedObject: {fileID: 556992305}
+    - targetCorrespondingSourceObject: {fileID: 4419083434238170, guid: 71442e8cd72511e4fabb72f1a2cc82dd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1871463834}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1185082912798350, guid: 71442e8cd72511e4fabb72f1a2cc82dd, type: 3}
       insertIndex: -1
@@ -15919,6 +15947,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   door: {fileID: 1984956730}
   open_prompt: {fileID: 2079666540}
+  cost: 100
 --- !u!65 &1396326801
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -22809,13 +22838,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 267ce8ea74c7bf14ea92f408fb959d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 1000
+  health: 100
   maxHealth: 100
   moveSpeed: 3
   sprintSpeed: 6
   pickupDistance: 50
   fpsCam: {fileID: 151917615}
   HealthGUI: {fileID: 1602289699}
+  healthRegen: 3
 --- !u!54 &1973277211
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -22856,7 +22886,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slot1: {fileID: 48624404}
-  slot2: {fileID: 183019475}
+  slot2: {fileID: 0}
   holdingSlot: 0
   knife: {fileID: 48624404}
   hockeystick: {fileID: 5655068386287333424}
@@ -23511,7 +23541,6 @@ Transform:
   - {fileID: 2026738109}
   - {fileID: 1188799217}
   - {fileID: 2020606871}
-  - {fileID: 1871463834}
   m_Father: {fileID: 1876256603}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2020606868 stripped
@@ -23660,7 +23689,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Press e to buy (2500)
+  m_text: Press e to buy perk (100)
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

@@ -16,6 +16,7 @@ public class Mystery_Box_Open : MonoBehaviour
     bool inRange = false;
     CharacterInventory Player;
     GameObject activeWeapon;
+    public int cost;
     void Start()
     {
         
@@ -43,12 +44,14 @@ public class Mystery_Box_Open : MonoBehaviour
             {
                 open_prompt.SetActive(true);
             }
-            if (Input.GetKeyDown(KeyCode.E) && !opened && !pickup)
+            if (Input.GetKeyDown(KeyCode.E) && !opened && !pickup && Player.money >= cost)
             {
+                
                 opened = true;
                 lid.DORotate(new Vector3(-45, -180, 0), 1f);
                 open_prompt.SetActive(false);
                 StartCoroutine(CycleWeapons());
+                Player.money -= cost;
                 
             }
             if (Input.GetKeyDown(KeyCode.E) && pickup)
@@ -61,17 +64,15 @@ public class Mystery_Box_Open : MonoBehaviour
                 pickup_prompt.SetActive(false);
                 
             }
+            
         }
-        
     }
 
     void OnTriggerStay(Collider other)
     {
         Player = other.gameObject.GetComponent<CharacterInventory>();
-        inRange = true;
-        
+        inRange = true; 
     }
-
     IEnumerator CycleWeapons()
     {
         GameObject currWeapon = weapons[0];
@@ -84,18 +85,10 @@ public class Mystery_Box_Open : MonoBehaviour
             yield return new WaitForSeconds(1f);
         }
         activeWeapon = currWeapon;
-        pickup = true;
-        
-        
-        
+        pickup = true;  
     }
-
-
-
-
     void OnTriggerExit(Collider other)
     {
-        
         inRange = false;
         open_prompt.SetActive(false);
         pickup_prompt.SetActive(false);

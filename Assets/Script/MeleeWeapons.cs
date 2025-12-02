@@ -53,6 +53,9 @@ public class MeleeWeapons : MonoBehaviour
         {
             damage+= damage;
         }
+        else if(gameObject.name == "Ak47"){
+            damage+= damage;
+        }
         weaponRenderer.material.color = Color.black;
     }
 }
